@@ -151,9 +151,9 @@ Vue.prototype.globalData = getApp();
 
 ## 登陆
 
-1.  https://developers.weixin.qq.com/community/develop/doc/0000a26e1aca6012e896a517556c01
+1. https://developers.weixin.qq.com/community/develop/doc/0000a26e1aca6012e896a517556c01
 
-2.  需要使用按钮主动获取用户授权
+2. 需要使用按钮主动获取用户授权
 
     目前用户授权方式需要主动获取授权。两种方式引导用户点击授权按钮
 
@@ -268,3 +268,7 @@ Vue.prototype.globalData = getApp();
     ```
 
     通过`this.$root.$mp.query`接收参数
+
+    ## 源码
+
+    https://github.com/houxiaozhao/mpvue-xiaochengxu

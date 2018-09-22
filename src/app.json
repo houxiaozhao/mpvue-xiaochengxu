@@ -1,0 +1,39 @@
+{
+  "pages": ["pages/welcome/main", "pages/index/main", "pages/mall/main", "pages/news/main", "pages/network/main", "pages/index/index2/main"],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "debug": true,
+    "list": [
+      {
+        "pagePath": "pages/index/main",
+        "text": "首页",
+        "iconPath": "static/img/home.png",
+        "selectedIconPath": "static/img/home_fill.png"
+      },
+
+      {
+        "pagePath": "pages/mall/main",
+        "text": "商城",
+        "iconPath": "static/img/shop.png",
+        "selectedIconPath": "static/img/shop_fill.png"
+      },
+      {
+        "pagePath": "pages/news/main",
+        "text": "动态",
+        "iconPath": "static/img/creative.png",
+        "selectedIconPath": "static/img/creative_fill.png"
+      },
+      {
+        "pagePath": "pages/network/main",
+        "text": "官网",
+        "iconPath": "static/img/favor.png",
+        "selectedIconPath": "static/img/favor_fill.png"
+      }
+    ]
+  }
+}

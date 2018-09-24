@@ -1,30 +1,29 @@
-var path = require('path')
-var fs = require('fs')
-var utils = require('./utils')
-var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
-var MpvuePlugin = require('webpack-mpvue-asset-plugin')
-var glob = require('glob')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
-var relative = require('relative')
+var path = require('path');
+var fs = require('fs');
+var utils = require('./utils');
+var config = require('../config');
+var vueLoaderConfig = require('./vue-loader.conf');
+var MpvuePlugin = require('webpack-mpvue-asset-plugin');
+var glob = require('glob');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var relative = require('relative');
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
 }
 
-function getEntry (rootSrc) {
+function getEntry(rootSrc) {
   var map = {};
-  glob.sync(rootSrc + '/pages/**/main.js')
-  .forEach(file => {
+  glob.sync(rootSrc + '/pages/**/main.js').forEach(file => {
     var key = relative(rootSrc, file).replace('.js', '');
     map[key] = file;
-  })
-   return map;
+  });
+  return map;
 }
 
-const appEntry = { app: resolve('./src/main.js') }
-const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js')
-const entry = Object.assign({}, appEntry, pagesEntry)
+const appEntry = { app: resolve('./src/main.js') };
+const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js');
+const entry = Object.assign({}, appEntry, pagesEntry);
 
 module.exports = {
   // 如果要自定义生成的 dist 目录里面的文件路径，
@@ -35,14 +34,12 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue': 'mpvue',
+      vue: 'mpvue',
       '@': resolve('src')
     },
     symlinks: false,
@@ -66,7 +63,7 @@ module.exports = {
             options: {
               checkMPEntry: true
             }
-          },
+          }
         ]
       },
       {
@@ -89,7 +86,7 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          // limit: 10000,
           name: utils.assetsPath('fonts/[name].[ext]')
         }
       }
@@ -97,12 +94,17 @@ module.exports = {
   },
   plugins: [
     new MpvuePlugin(),
-    new CopyWebpackPlugin([{
-      from: '**/*.json',
-      to: ''
-    }], {
-      context: 'src/'
-    }),
+    new CopyWebpackPlugin(
+      [
+        {
+          from: '**/*.json',
+          to: ''
+        }
+      ],
+      {
+        context: 'src/'
+      }
+    ),
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
@@ -111,4 +113,4 @@ module.exports = {
       }
     ])
   ]
-}
+};

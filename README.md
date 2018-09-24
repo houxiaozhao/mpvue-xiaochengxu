@@ -269,6 +269,27 @@ Vue.prototype.globalData = getApp();
 
     通过`this.$root.$mp.query`接收参数
 
+    ## 使用font-awesome图标
+
+    1. 安装`yarn add  font-awesome`
+
+    2. 在main.js中引用`import 'font-awesome/css/font-awesome.min.css';`
+
+    3. 修改`build/webpack.base.conf.js`
+
+       ```javascript
+        {
+               test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+               loader: 'url-loader',
+               options: {
+                 // limit: 10000, //注释掉
+                 name: utils.assetsPath('fonts/[name].[ext]')
+               }
+             }
+       ```
+
+    4. `npm run dev`
+
     ## 源码
 
     https://github.com/houxiaozhao/mpvue-xiaochengxu

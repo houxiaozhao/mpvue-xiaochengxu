@@ -2,6 +2,7 @@
   <div>
     <button type="default" open-type="share">自定义分享</button>
     <button type="default" @click="navigate">跳转</button>
+    <i class="fa fa-camera-retro"></i> fa-camera-retro
   </div>
 </template>
 

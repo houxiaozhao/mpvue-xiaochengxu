@@ -10,7 +10,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "flyio": "^0.6.1",
+    "font-awesome": "^4.7.0",
     "mpvue": "^1.0.11",
     "vuex": "^3.0.1"
   },
